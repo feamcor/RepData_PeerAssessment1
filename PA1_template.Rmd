@@ -1,8 +1,7 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
-subtitle: "Coursera Data Science Specialization (repdata-035)"
-author: "Fabio Correa (feamcor)"
-#date: "December 2015"
+author: "Fabio Correa (@feamcor, coursera, data science specialization, repdata-035)"
+date: "December 2015"
 output: 
   html_document:
     keep_md: true
@@ -36,7 +35,12 @@ dataset <- read.csv(filename.csv,
                     header=TRUE,
                     colClasses=c("integer", "Date", "integer"))
 ```
-The dataset contains **`r nrow(dataset)`** observations!
+The dataset contains __`r nrow(dataset)`__ observations!  
+The variables included in the dataset are:
+
+*  __steps__: Number of steps taken in a 5-minute interval (missing values are coded as NA)
+*  __date__: The date on which the measurement was taken (YYYY-MM-DD)
+*  __interval__: Identifier for the 5-minute interval in which measurement was taken
 
 ## Pre-processing the Dataset
 ```{r preproc}
@@ -47,7 +51,7 @@ date.type <- factor(weekdays(dataset$date,
                     labels = c('weekend', 'weekday'))
 dataset <- cbind(dataset, date.type)
 ```
-New column **date.type** added to dataset indicating whether date is **weekday** or **weekend**.
+New column __date.type__ added to dataset indicating whether date is __weekday__ or __weekend__.
 
 ## What is mean total number of steps taken per day?
 ```{r stepsday}
@@ -62,8 +66,8 @@ hist(stepsday$steps,
 stepsday.mean <- mean(stepsday$steps)
 stepsday.median <- median(stepsday$steps)
 ```
-Individual took an average of **`r sprintf("%.0f", stepsday.mean)`** steps per day.  
-The median was a day where individual took **`r stepsday.median`** steps.
+Individual took an average of __`r sprintf("%.0f", stepsday.mean)`__ steps per day.  
+The median was a day where individual took __`r stepsday.median`__ steps.
 
 ## What is the average daily activity pattern?
 ## Imputing missing values

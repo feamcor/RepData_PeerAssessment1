@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
-<meta name="author" content="Fabio Correa (feamcor)" />
+<meta name="author" content="Fabio Correa (@feamcor, coursera, data science specialization, repdata-035)" />
 
 
 <title>Reproducible Research: Peer Assessment 1</title>
@@ -62,8 +62,8 @@ img {
 
 <div id="header">
 <h1 class="title">Reproducible Research: Peer Assessment 1</h1>
-<h3 class="subtitle"><em>Coursera Data Science Specialization (repdata-035)</em></h3>
-<h4 class="author"><em>Fabio Correa (feamcor)</em></h4>
+<h4 class="author"><em>Fabio Correa (<span class="citation">@feamcor</span>, coursera, data science specialization, repdata-035)</em></h4>
+<h4 class="date"><em>December 2015</em></h4>
 </div>
 
 
@@ -77,7 +77,7 @@ if(!file.exists(filename.zip)) {
 } else {
     message(paste(Sys.time(), &quot;Dataset zip file already exists!&quot;, filename.zip))
 }</code></pre>
-<pre><code>## 2015-12-12 22:54:56 Dataset zip file downloaded! activity.zip</code></pre>
+<pre><code>## 2015-12-13 11:22:56 Dataset zip file already exists! activity.zip</code></pre>
 <pre class="r"><code>filename.csv &lt;- &quot;activity.csv&quot;
 if(!file.exists(filename.csv)) {
     unzip(filename.zip, overwrite = TRUE)
@@ -85,11 +85,16 @@ if(!file.exists(filename.csv)) {
 } else {
     message(paste(Sys.time(), &quot;Dataset file already exists!&quot;, filename.csv))
 }</code></pre>
-<pre><code>## 2015-12-12 22:54:56 Dataset file expanded! activity.csv</code></pre>
+<pre><code>## 2015-12-13 11:22:56 Dataset file already exists! activity.csv</code></pre>
 <pre class="r"><code>dataset &lt;- read.csv(filename.csv,
                     header=TRUE,
                     colClasses=c(&quot;integer&quot;, &quot;Date&quot;, &quot;integer&quot;))</code></pre>
-<p>The dataset contains <strong>17568</strong> observations!</p>
+<p>The dataset contains <strong>17568</strong> observations!<br />The variables included in the dataset are:</p>
+<ul>
+<li><strong>steps</strong>: Number of steps taken in a 5-minute interval (missing values are coded as NA)</li>
+<li><strong>date</strong>: The date on which the measurement was taken (YYYY-MM-DD)</li>
+<li><strong>interval</strong>: Identifier for the 5-minute interval in which measurement was taken</li>
+</ul>
 </div>
 <div id="pre-processing-the-dataset" class="section level2">
 <h2>Pre-processing the Dataset</h2>
